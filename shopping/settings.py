@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'register',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,6 +82,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sqlserver_ado',
+#         'NAME': 'shopping',
+#         'HOST': 'dbserver\\ss2014',
+#         'USERNAME': '',
+#         'PASSWORD': ''
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -118,16 +129,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
 STATIC_URL = '/static/'
-
-
-#DATABASES = {
- #   'default': {
- #       'ENGINE': 'django.db.backends.mysql', 
- #       'NAME': 'shopping',
- #       'USER': 'shopping',
-  #      'PASSWORD': 'shopping',
-  #      'HOST': 'localhost',  
-   #     'PORT': '3306',
-  #  }
-#}
+STATIC_ROOT = os.path.join(BASE_DIR, "itc", "static_env")
