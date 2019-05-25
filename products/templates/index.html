@@ -1,6 +1,49 @@
-<h1>Products</h1>
-<ul>
-    {% for product in products %}
-    <li>{{product.name}} {{product.price}}</li>
-    {% endfor %}
-</ul>
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar navbar-right navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Computer Store</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Shopping</a>
+          </li>
+        </ul>`
+        <div class="pull"></div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+       {% block content %}
+        {% for product in products %}
+        <div class="card" style="width:18rem ; margin: 20px">
+          <img class="card-img-top" src="" alt="">
+           <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.price}}</p>
+              <a href="#" class="btn btn-success">Add to Cart</a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endblock  %}
+      </div>
+    </div>
+  </body>
+</html>
